@@ -1,0 +1,73 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Romanesco&display=swap');
+body{
+
+   color: black;
+
+}
+
+
+.para{
+    margin-top: 20px;
+    font-weight: bold;
+    text-align:left;
+    }
+.head{
+    font-family: 'Romanesco', cursive;
+    text-align: center;
+    font-weight: bolder;
+    font-size: 5rem;
+
+}
+
+.title{
+    border: none;
+   
+    font-size:1.7rem;
+    font-weight: medium;
+   
+    
+}
+.date{
+    border: none;
+    font-size:1.7rem;
+    font-weight:medium;
+  
+
+}
+.inner{
+    margin-top:1%;
+}
+.nav-item{
+    padding-right: 0.6rem;
+    text-align: center;
+}
+.navbar{
+    width: 100%;
+    padding: none;
+}
+img{
+   width: 250px;
+   height: 250px;
+  
+   margin-top: -21.5%;
+
+
+ 
+}
+.a-link{
+    padding: none;
+    font-size:1.7 rem;
+}
+
+.maindiv{
+   width:1080px;
+   height: auto;
+   margin:auto;
+   position: relative;
+}
+
+.card{
+    width:100%;
+    padding: none;
+}
