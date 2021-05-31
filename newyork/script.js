@@ -158,7 +158,7 @@ const nav12=document.createElement("a");
 nav12.classList.add("nav-link");
 nav12.setAttribute("id","travel")
 nav12.innerText="TRAVEL";
-nav12.setAttribute("href","");
+nav12.setAttribute("href","#");
 li12.appendChild(nav12);
 
 
@@ -177,15 +177,15 @@ navlink.forEach((value,i)=>{
          const datafinal= await data.json();
       
        const fetchdata = datafinal.results;
-        fetchdata.forEach((item)=>{
+        
      
-           cal(url,item,value);
+          cal(url,fetchdata,value.id);
         
             
-         })
+     
       }
          catch(err){
-          console.log("error");
+          console.log(err);
        }
     })();
   
@@ -195,30 +195,19 @@ navlink.forEach((value,i)=>{
   
 
 
-  const mainFunction = async ()=>{
-    try{
-      const url = `https://api.nytimes.com/svc/topstories/v2/home.json?api-key=mcAs4PvBbvZKjtkCYSJVDtO2vAV7HOr2`;
-    
-     
-      const data = await fetch(url);
-      const datafinal = await data.json();
-      const fetchdata = datafinal.results;
-      fetchdata.forEach((item)=>{
-      
-        cal(url,item,"Home");
-       
-      })
-    }
-      catch(err){
-        console.log("error");
-      }
-  }
-  mainFunction();
-
-async function cal(url,item,value){
 
 
-     fetch(url).then(response => response.json())
+const newdiv=document.createElement("div");
+newdiv.setAttribute("class",'newdiv');
+maindiv.appendChild(newdiv);
+
+function cal(url,item,value){
+
+newdiv.innerHTML=" ";
+
+item.forEach((item)=>{
+  
+
     
 
 
@@ -228,7 +217,7 @@ async function cal(url,item,value){
             const card = document.createElement("div");
             card.setAttribute('class',"card inner");
             
-            maindiv.appendChild(card);
+            newdiv.appendChild(card);
           
            
         
@@ -265,8 +254,27 @@ async function cal(url,item,value){
             img.setAttribute("src", item.multimedia[1].url);
            img.setAttribute("style", " width:20%;position:absolute;margin-left:75%");
             cardBody.appendChild(img);
+})
            
           }
 
 
-      
+          const mainFunction = async ()=>{
+            try{
+              const url = `https://api.nytimes.com/svc/topstories/v2/home.json?api-key=mcAs4PvBbvZKjtkCYSJVDtO2vAV7HOr2`;
+            
+             
+              const data = await fetch(url);
+              const datafinal = await data.json();
+              const fetchdata = datafinal.results;
+           
+              
+                cal(url,fetchdata,"Home");
+               
+              
+            }
+              catch(err){
+                console.log("error");
+              }
+          }
+          mainFunction();
